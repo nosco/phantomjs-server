@@ -1,6 +1,6 @@
-[![NPM version](https://badge.fury.io/js/phantom-server.png)](http://badge.fury.io/js/phantom-server)
+[![NPM version](https://badge.fury.io/js/phantomjs-server.png)](http://badge.fury.io/js/phantomjs-server)
 
-PhantomServer
+PhantomJS Server
 =======
 
 Use PhantomJS as a drop-in replacement for your Selenium Standalone server.
@@ -13,7 +13,36 @@ The server.address() works the same way as the selenium-webdriver's version, by 
 
 PhantomJS is 1.9.2-6 as this is the last working version on Mac OS X.
 
-### How it works
+### Start a PhantomJS server with package.json pretest
+To start a PhantomJS server before running your test scripts, you can create a file that is called pretest like this:
+
+package.json
+```
+{
+  ...
+  "devDependencies": {
+	...
+    "selenium-webdriver": "~2.39.0",
+    "phantomjs-server": "1.9.2"
+  },
+  "scripts": {
+	...
+    "pretest": "node start-phantomjs.js",
+    "posttest": "killall phantomjs",
+  }
+}
+```
+
+start-phantomjs.js
+```
+var phantomjs = require('phantomjs-server');
+phantomjs.start().then(function() {
+  process.exit(0);
+});
+```
+
+
+### Using phantomjs-server inline instead of selenium-server-standalone
 
 Assuming a Selenium testing script looking something like this:
 ```
@@ -23,11 +52,9 @@ var SeleniumServer = require('selenium-webdriver/remote').SeleniumServer;
 var server = new SeleniumServer('bin/selenium-server-standalone.jar', { port: 4444 });
 server.start();
 
-var browser = { "browserName": "firefox" };
-
 var driver = new webdriver.Builder().
   usingServer(server.address()).
-  withCapabilities(browser).
+  withCapabilities({ "browserName": "firefox" }).
   build();
 ```
 
@@ -40,7 +67,7 @@ server.start();
 
 With this:
 ```
-var phantom = require('phantom-server');
+var phantom = require('phantomjs-server');
 phantom.start();
 ```
 
@@ -51,14 +78,12 @@ So the final script looks like:
 ```
 var webdriver = require('selenium-webdriver');
 
-var phantom = require('phantom-server');
+var phantom = require('phantomjs-server');
 phantom.start();
-
-var browser = { "browserName": "phantomjs" };
 
 var driver = new webdriver.Builder().
   usingServer(server.address()). // This part is important!
-  withCapabilities(browser).
+  withCapabilities({ "browserName": "phantomjs" }).
   build();
 ```
 

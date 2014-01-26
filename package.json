@@ -1,5 +1,5 @@
 {
-  "name": "phantom-server",
+  "name": "phantomjs-server",
   "version": "1.9.2",
   "keywords": [
     "phantom",
@@ -8,10 +8,10 @@
     "headless"
   ],
   "description": "PhantomJS Selenium Server",
-  "homepage": "https://github.com/nosco/phantom-server",
+  "homepage": "https://github.com/nosco/phantomjs-server",
   "repository": {
     "type": "git",
-    "url": "git://github.com/nosco/phantom-server.git"
+    "url": "git://github.com/nosco/phantomjs-server.git"
   },
   "author": {
     "name": "Dan Larsen",
@@ -25,6 +25,6 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nosco/phantom-server/issues"
+    "url": "https://github.com/nosco/phantomjs-server/issues"
   }
 }
