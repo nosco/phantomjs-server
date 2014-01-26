@@ -1,0 +1,30 @@
+{
+  "name": "phantom-server",
+  "version": "1.9.2",
+  "keywords": [
+    "phantom",
+    "phantomjs",
+    "selenium",
+    "headless"
+  ],
+  "description": "PhantomJS Selenium Server",
+  "homepage": "https://github.com/nosco/phantom-server",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nosco/phantom-server.git"
+  },
+  "author": {
+    "name": "Dan Larsen",
+    "email": "dan@techba.se",
+    "url": "http://github.com/morphar"
+  },
+  "main": "lib",
+  "dependencies": {
+    "phantomjs": "1.9.2-6",
+    "when": "~2.7.1"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nosco/phantom-server/issues"
+  }
+}
