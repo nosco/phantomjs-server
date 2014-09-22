@@ -21,7 +21,7 @@
   "main": "lib",
   "dependencies": {
     "phantomjs": "1.9.2-6",
-    "when": "3.4.6"
+    "when": "~2.7.1"
   },
   "license": "MIT",
   "bugs": {
