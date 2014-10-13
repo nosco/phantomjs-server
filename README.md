@@ -28,7 +28,7 @@ package.json
   "scripts": {
 	...
     "pretest": "node start-phantomjs.js",
-    "posttest": "killall phantomjs",
+    "posttest": "node stop-phantomjs.js",
   }
 }
 ```
@@ -39,6 +39,14 @@ var phantomjs = require('phantomjs-server');
 phantomjs.start().then(function() {
   process.exit(0);
 });
+```
+
+stop-phantomjs.js
+```
+require('child_process').exec(process.platform === 'win32' ? 'taskkill /F /IM phantomjs.exe /T' : 'killall phantomjs',
+    function (error, stdout, stderr) {
+        console.log(stdout);
+    });
 ```
 
 
