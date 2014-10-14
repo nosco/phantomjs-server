@@ -20,7 +20,7 @@
   },
   "main": "lib",
   "dependencies": {
-    "phantomjs": "1.9.2-6",
+    "phantomjs": "1.9.10",
     "when": "~2.7.1"
   },
   "license": "MIT",
