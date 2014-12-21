@@ -1,6 +1,6 @@
 {
   "name": "phantomjs-server",
-  "version": "1.9.10",
+  "version": "1.9.13",
   "keywords": [
     "phantom",
     "phantomjs",
@@ -20,7 +20,7 @@
   },
   "main": "lib",
   "dependencies": {
-    "phantomjs": "1.9.10",
+    "phantomjs": "1.9.13",
     "when": "~2.7.1"
   },
   "license": "MIT",
